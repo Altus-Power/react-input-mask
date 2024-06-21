@@ -7,7 +7,6 @@ import { expect } from "chai"; // eslint-disable-line import/no-extraneous-depen
 import * as deferUtils from "../../src/utils/defer";
 import Input from "../../src";
 import { getInputSelection } from "../../src/utils/input";
-import { isDOMElement } from "../../src/utils/helpers";
 
 document.body.innerHTML = '<div id="container"></div>';
 const container = document.getElementById("container");
@@ -34,10 +33,6 @@ async function waitForPendingSelection() {
 }
 
 function getInputDOMNode(input) {
-  if (!isDOMElement(input)) {
-    input = ReactDOM.findDOMNode(input);
-  }
-
   if (input.nodeName !== "INPUT") {
     input = input.querySelector("input");
   }
